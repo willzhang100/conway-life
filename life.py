@@ -6,8 +6,8 @@ class Life:
 
     def __init__(self, path):
         self.board = self.build(path)
-        self.width, self.height = 450, 450
-        self.w = self.width // self.col
+        self.w = 20
+        self.width, self.height = self.col * self.w, self.row * self.w
         self.p = 5
         self.c = self.setup()
         self.c.pack()
@@ -24,12 +24,12 @@ class Life:
         board = []
         with open(path) as f:
             data = f.read()
-            col = len(data.splitlines())
-            row = 0
+            lines = data.splitlines()
+            row = len(lines)
+            col = len(lines[0].replace(" ", ""))
             for line in data.splitlines():
                 cleaned = line.replace(" ", "") # removes all whitespace
                 board.append(list(cleaned))
-                row += 1
             self.col, self.row = col, row
         return board
 
@@ -60,5 +60,5 @@ class Life:
         self.render()
 
 if __name__ == '__main__':
-    path = "board_2.txt"
+    path = "seeds/board_3.txt"
     life = Life(path)
