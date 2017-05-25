@@ -5,11 +5,10 @@ import copy
 class Life:
 
     def __init__(self, path):
-        self.width, self.height = 400, 400
-        self.col, self.row = 10, 10
-        self.w = 40
-        self.p = 5
         self.board = self.build(path)
+        self.width, self.height = 450, 450
+        self.w = self.width // self.col
+        self.p = 5
         self.c = self.setup()
         self.c.pack()
 
@@ -17,16 +16,21 @@ class Life:
         mainloop()
 
     def setup(self):
+        w, h, p = self.width, self.height, self.p
         master = Tk()
-        return Canvas(master, width=405, height=405)
+        return Canvas(master, width=(w+p), height=(h+p))
 
     def build(self, path):
         board = []
         with open(path) as f:
             data = f.read()
+            col = len(data.splitlines())
+            row = 0
             for line in data.splitlines():
                 cleaned = line.replace(" ", "") # removes all whitespace
                 board.append(list(cleaned))
+                row += 1
+            self.col, self.row = col, row
         return board
 
     def render(self):
@@ -56,5 +60,5 @@ class Life:
         self.render()
 
 if __name__ == '__main__':
-    path = "board_1.txt"
+    path = "board_2.txt"
     life = Life(path)
