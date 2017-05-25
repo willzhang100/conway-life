@@ -1,7 +1,7 @@
 I made a basic program that runs Conway's Game of Life using the tkinter module in Python.
 
 
-![](http://i.imgur.com/OUkLi.gif)
+![](./images/conway-01.gif)
 
 
 Conway's Game of Life is a famous example of a cellular automaton. The game takes place in
