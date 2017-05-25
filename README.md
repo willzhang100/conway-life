@@ -14,7 +14,7 @@ There are four simple rules to the Game of Life:
 4. If a cell is alive and has two or three live neighbors, then the cell will continue living.
 
 Based off of these four rules, the pattern of the next generation of cells can be rendered.
-I made some example "seeds," which are initial states for the game to load and run. You can
+I made some example seeds, which are initial states for the game to load and run. You can
 make your own seed files by creating a text file and typing out a square grid of 0's (dead cells) and 1's (alive cells). 
 In the life.py file, change the value of the path variable to the path of the file you want to run. 
 
