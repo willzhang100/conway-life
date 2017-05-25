@@ -6,7 +6,7 @@ class Life:
 
     def __init__(self, path):
         self.board = self.build(path)
-        self.w = 20
+        self.w = 5
         self.width, self.height = self.col * self.w, self.row * self.w
         self.p = 5
         self.c = self.setup()
@@ -40,7 +40,7 @@ class Life:
                     self.c.create_rectangle(j*self.w+self.p, i*self.w+self.p, (j+1)*self.w+self.p, (i+1)*self.w+self.p, fill="black")
                 else:
                     self.c.create_rectangle(j*self.w+self.p, i*self.w+self.p, (j+1)*self.w+self.p, (i+1)*self.w+self.p, fill="white")
-        self.c.after(500, self.generate) # wait 500 ms then generate the new board
+        self.c.after(250, self.generate) # wait 500 ms then generate the new board
 
     def generate(self):
         nextboard = copy.deepcopy(self.board)
@@ -60,5 +60,5 @@ class Life:
         self.render()
 
 if __name__ == '__main__':
-    path = "seeds/board_3.txt"
+    path = "seeds/acorn.txt"
     life = Life(path)
